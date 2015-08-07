@@ -64,6 +64,7 @@
     "afterEach": false,
     "expect": false,
     "pending": false,
-    "spyOn": false
+    "spyOn": false,
+    "inject": false
   }
 }

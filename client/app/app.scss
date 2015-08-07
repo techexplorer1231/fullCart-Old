@@ -1,12 +1,6 @@
-
-$fa-font-path: "/bower_components/font-awesome/fonts";
-
-@import 'font-awesome/scss/font-awesome';
-
 /**
  * App-wide Styles
  */
-
 @import url(http://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Roboto:400,700,700italic,400italic);
 
 html {
@@ -29,5 +23,6 @@ html {
 @import 'account/login/login.scss';
 @import 'admin/admin.scss';
 @import 'main/main.scss';
+@import 'cartProductGridView/cartProductGridView.scss';
 @import 'cpcHeader/cpcHeader.scss';
 // endinjector
