@@ -1,0 +1,11 @@
+//colors
+$color_madang_approx: #b9f6ca;
+
+.gridListdemoBasicUsage {
+  .green {
+    background: $color_madang_approx;
+  }
+  md-grid-tile {
+    transition: all 400ms ease-out 50ms;
+  }
+}
