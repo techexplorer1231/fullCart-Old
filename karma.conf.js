@@ -30,18 +30,9 @@ module.exports = function(config) {
       'client/components/**/*.html'
     ],
 
-    reporters: ['coverage' , 'coveralls'],
-
-    coverageReporter: {
-      type : 'lcov',
-      dir: 'coverage'
-    },
-
     preprocessors: {
-      'client/{app,components}/**/*.js': ['coverage'],
       '**/*.jade': 'ng-jade2js',
-      '**/*.html': 'html2js',
-      '**/*.coffee': 'coffee'
+      '**/*.html': 'html2js'
     },
 
     ngHtml2JsPreprocessor: {

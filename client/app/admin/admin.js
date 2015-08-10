@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('fullCartApp.admin')
+angular.module('fullCartApp')
   .config(function ($stateProvider) {
     $stateProvider
       .state('admin', {

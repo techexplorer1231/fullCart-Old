@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('fullCartApp.admin')
+angular.module('fullCartApp')
   .controller('AdminCtrl', function ($scope, $http, Auth, User) {
 
     // Use the User $resource to fetch all users
