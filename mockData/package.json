@@ -1,0 +1,20 @@
+{
+  "name": "mockData",
+  "version": "1.0.0",
+  "description": "create mock data",
+  "main": "data.js",
+  "dependencies": {
+    "chance": "^0.7.4",
+    "faker": "^2.1.2",
+    "json-server": "^0.7.3",
+    "lodash": "^3.8.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "mock"
+  ],
+  "author": "dreamweaver1231@gmail.com",
+  "license": "MIT"
+}
