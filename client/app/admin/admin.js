@@ -6,6 +6,11 @@ angular.module('fullCartApp')
       .state('admin', {
         url: '/admin',
         templateUrl: 'app/admin/admin.html',
-        controller: 'AdminCtrl'
-      });
+        controller: 'AdminController',
+        controllerAs: 'admin'
+      })
+      .state('addProduct', {
+        url: '/admin/add/product',
+        templateUrl: 'components/cartAdminAddProduct/cartAdminAddProduct.html'
+      })
   });

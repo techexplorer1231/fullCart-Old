@@ -1,4 +1,4 @@
-(function() {
+(function () {
   'use strict';
 
   angular
@@ -16,7 +16,7 @@
      * report completion in console
      */
     function buildToggler(navID) {
-      var debounceFn =  $mdUtil.debounce(function() {
+      var debounceFn = $mdUtil.debounce(function () {
         $mdSidenav(navID)
           .toggle()
           .then(function () {
