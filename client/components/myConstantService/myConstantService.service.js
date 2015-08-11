@@ -7,8 +7,11 @@
   /* @ngInject */
   function myConstantService() {
     var exports = {
+      //For Category Admin
       getParentCategory: getParentCategory,
-      getCategoryStatus: getCategoryStatus
+      getCategoryStatus: getCategoryStatus,
+      //For brand admin
+      getBrandStatus : getBrandStatus,
     };
 
     return exports;
@@ -21,6 +24,11 @@
     }
 
     function getCategoryStatus() {
+      var data = [{'key':0, 'value':'Draft'}, {'key':1, 'value':'Live'}];
+      return data;
+    }
+
+    function getBrandStatus() {
       var data = [{'key':0, 'value':'Draft'}, {'key':1, 'value':'Live'}];
       return data;
     }

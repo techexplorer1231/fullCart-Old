@@ -1,0 +1,40 @@
+<form name="categoryForm" ng-submit="vm.submit()">
+
+  <div layout layout-sm="column">
+    <md-input-container flex>
+      <label>Brand Title</label>
+      <input ng-model="vm.brand.title" name="title" required>
+      <div ng-messages="categoryForm.title.$error">
+        <div ng-message="required">Required</div>
+      </div>
+    </md-input-container>
+    <md-input-container flex="50">
+      <label>Brand Status</label>
+      <md-select ng-model="vm.brand.status" name="status" required>
+        <md-option ng-repeat="status in vm.brandStatus" ng-value="status.key">
+          {{status.value}}
+        </md-option>
+      </md-select>
+      <div class="errors" ng-messages="categoryForm.status.$error">
+        <div ng-message="required">Required</div>
+      </div>
+    </md-input-container>
+  </div>
+
+  <md-input-container flex>
+    <label>Description</label>
+    <textarea ng-model="vm.brand.description" columns="1" name="description" required md-maxlength="150"></textarea>
+    <div ng-messages="categoryForm.description.$error">
+      <div ng-message="required">This is required.</div>
+      <div ng-message="md-maxlength">The description has to be less than 150 characters long.</div>
+    </div>
+  </md-input-container>
+  <div layout layout-sm="row">
+    <md-input-container flex="50">
+      <md-button ng-disabled="categoryForm.$invalid" type="submit" class="md-raised md-primary">
+        Add Category
+      </md-button>
+    </md-input-container>
+  </div>
+
+</form>

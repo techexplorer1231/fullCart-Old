@@ -14,6 +14,7 @@
     <!-- build:css(client) app/vendor.css -->
       <!-- bower:css -->
       <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
+      <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.css" />
       <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css({.tmp,client}) app/app.css -->
@@ -59,6 +60,7 @@
       <script src="bower_components/angular-material/angular-material.js"></script>
       <script src="bower_components/lodash/lodash.js"></script>
       <script src="bower_components/angular-file-upload/dist/angular-file-upload.min.js"></script>
+      <script src="bower_components/angular-loading-bar/build/loading-bar.js"></script>
       <!-- endbower -->
       <script src="socket.io-client/socket.io.js"></script>
     <!-- endbuild -->
@@ -76,9 +78,11 @@
           <script src="app/admin/admin.js"></script>
           <script src="app/main/main.controller.js"></script>
           <script src="app/main/main.js"></script>
+          <script src="components/adminAddService/adminAddBrand.service.js"></script>
           <script src="components/adminAddService/adminAddCategory.service.js"></script>
           <script src="components/authService/auth.service.js"></script>
           <script src="components/authService/user.service.js"></script>
+          <script src="components/cartAdminAddBrand/cartAdminAddBrand.controller.js"></script>
           <script src="components/cartAdminAddCategory/cartAdminAddCategory.controller.js"></script>
           <script src="components/cartAdminAddProduct/cartAdminAddProduct.controller.js"></script>
           <script src="components/cartProductGridView/cartProductGridView.directive.js"></script>

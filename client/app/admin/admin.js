@@ -20,5 +20,11 @@ angular.module('fullCartApp')
         templateUrl: 'components/cartAdminAddCategory/cartAdminAddCategory.html',
         controller: 'CartAdminAddCategoryController',
         controllerAs: 'vm'
+      })
+      .state('addBrand', {
+        url: '/admin/addBrand',
+        templateUrl: 'components/cartAdminAddBrand/cartAdminAddBrand.html',
+        controller: 'cartAdminAddBrandController',
+        controllerAs: 'vm'
       });
   });

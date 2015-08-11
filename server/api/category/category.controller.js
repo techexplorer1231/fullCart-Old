@@ -22,8 +22,9 @@ exports.show = function(req, res) {
 
 // Creates a new category in the DB.
 exports.create = function(req, res) {
-  console.log('called', req.body);
-  Category.create(req.body, function(err, category) {
+  var data = req.body;
+  data.created_at = new Date();
+  Category.create(data, function(err, category) {
     if (err) { return handleError(res, err); }
     return res.status(201).send(category);
   });

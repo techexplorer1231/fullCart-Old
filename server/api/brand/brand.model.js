@@ -1,11 +1,10 @@
 'use strict';
 
 var mongoose = require('mongoose'),
-  Schema = mongoose.Schema,
   shortid = require('shortid'),
-  objectid = Schema.Types.ObjectId;
+  Schema = mongoose.Schema;
 
-var CategorySchema = new Schema({
+var BrandSchema = new Schema({
   created_at: {
     type: Date
   },
@@ -13,7 +12,6 @@ var CategorySchema = new Schema({
     type: String,
     required: true
   },
-  parent: String,
   /*A unique identifier generally used as part of a URL.*/
   slug: {
     type: String,
@@ -33,7 +31,6 @@ var CategorySchema = new Schema({
     type: Date,
     default: Date.now
   }
-
 });
 
-module.exports = mongoose.model('Category', CategorySchema);
+module.exports = mongoose.model('Brand', BrandSchema);
