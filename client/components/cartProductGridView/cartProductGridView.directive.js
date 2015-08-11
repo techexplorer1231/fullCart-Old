@@ -29,7 +29,5 @@
 
   /* @ngInject */
   function CartProductGridViewController() {
-    var vm = this;
-    alert('CartProductGridViewController');
   }
 })();
