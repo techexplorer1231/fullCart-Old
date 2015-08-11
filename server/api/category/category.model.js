@@ -1,36 +1,40 @@
 'use strict';
 
 var mongoose = require('mongoose'),
-  Schema = mongoose.Schema;
+  Schema = mongoose.Schema,
+  shortid = require('shortid'),
+  objectid = Schema.Types.ObjectId;
 
 var CategorySchema = new Schema({
   created_at: {
     type: Date,
     default: Date.now
   },
-  updated_at: {
-    type: Date,
-    default: Date.now
-  },
-  title: {
+  description: {
     type: String,
     required: true
   },
+  parent: String,
   /*A unique identifier generally used as part of a URL.*/
   slug: {
     type: String,
     required: true,
-    unique: true
+    default: shortid.generate
   },
   /*Choices available are 0 (Draft), 1 (Live).*/
   status: {
     type: Object,
     required: true
   },
-  description: {
+  title: {
     type: String,
     required: true
+  },
+  updated_at: {
+    type: Date,
+    default: Date.now
   }
+
 });
 
 module.exports = mongoose.model('Category', CategorySchema);

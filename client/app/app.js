@@ -6,6 +6,7 @@
       'ngCookies',
       'ngResource',
       'ngSanitize',
+      'ngMessages',
       'ngMaterial',
       'ngAnimate',
       'btford.socket-io',
