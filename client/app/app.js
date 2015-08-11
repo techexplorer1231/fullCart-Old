@@ -10,7 +10,8 @@
       'ngAnimate',
       'btford.socket-io',
       'ngAria',
-      'ui.router'
+      'ui.router',
+      'angularFileUpload'
     ])
     .config(config)
     .run(run)
@@ -63,10 +64,6 @@
 
     $locationProvider.html5Mode(true);
     $httpProvider.interceptors.push('authInterceptor');
-
-    //set primary theme for the application
-    $mdThemingProvider.theme('default')
-      .primaryPalette('light-blue');
 
     //set primary theme for the application
     $mdThemingProvider.theme('default')

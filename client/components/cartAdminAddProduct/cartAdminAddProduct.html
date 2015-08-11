@@ -1,0 +1,77 @@
+<!-- Todo-pratap - add input type file and --elements -->
+<pre>form = {{vm.product | json}}</pre>
+<form name="productForm" action="/api/products" method="post" enctype="multipart/form-data">
+  <div layout layout-sm="column">
+    <md-input-container flex>
+      <label>Product Title</label>
+      <input type="text" ng-model="vm.product.title">
+    </md-input-container>
+    <md-input-container flex="50">
+      <label>Unique Product Name</label>
+      <input type="text" ng-model="vm.product.slug">
+    </md-input-container>
+  </div>
+  <div layout layout-sm="column">
+    <md-input-container flex>
+      <label>Product Price</label>
+      <input ng-model="vm.product.price">
+    </md-input-container>
+    <md-input-container flex="50">
+      <label>Product Sale Price</label>
+      <input ng-model="vm.product.sale_price">
+    </md-input-container>
+  </div>
+  <div layout layout-sm="column">
+    <md-input-container flex>
+      <label>Stock Level</label>
+      <input ng-model="vm.product.stock_level">
+    </md-input-container>
+    <md-input-container flex="50">
+      <label>Weight</label>
+      <input ng-model="vm.product.weight">
+    </md-input-container>
+  </div>
+  <div layout layout-sm="column">
+    <md-input-container flex>
+      <label>Height</label>
+      <input ng-model="vm.product.height">
+    </md-input-container>
+    <md-input-container flex="50">
+      <label>Width</label>
+      <input ng-model="vm.product.width">
+    </md-input-container>
+  </div>
+  <div layout layout-sm="column">
+    <md-input-container flex>
+      <label>Depth</label>
+      <input ng-model="vm.product.depth">
+    </md-input-container>
+    <md-input-container flex="50">
+      <label>Brand</label>
+      <input type="text" ng-model="vm.product.brand">
+    </md-input-container>
+  </div>
+  <div layout layout-sm="column">
+    <md-input-container flex>
+      <label>Tax Band</label>
+      <input type="number" ng-model="vm.product.tax_band">
+    </md-input-container>
+    <md-input-container flex="50">
+      <label>Catalog Only</label>
+      <input type="number" ng-model="vm.product.catalog_only">
+    </md-input-container>
+  </div>
+  <md-input-container flex>
+    <label>Description</label>
+    <textarea ng-model="vm.product.description" columns="1" md-maxlength="150"></textarea>
+  </md-input-container>
+
+  <div layout layout-sm="column">
+    <md-input-container flex>
+      <md-button class="md-raised">Add Images</md-button>
+    </md-input-container>
+    <md-input-container flex="50">
+      <md-button type="submit" class="md-raised md-primary">Add Product</md-button>
+    </md-input-container>
+  </div>
+</form>

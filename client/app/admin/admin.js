@@ -10,7 +10,9 @@ angular.module('fullCartApp')
         controllerAs: 'admin'
       })
       .state('addProduct', {
-        url: '/admin/add/product',
-        templateUrl: 'components/cartAdminAddProduct/cartAdminAddProduct.html'
-      })
+        url: '/admin/addProduct',
+        templateUrl: 'components/cartAdminAddProduct/cartAdminAddProduct.html',
+        controller: 'CartAdminAddProductController',
+        controllerAs: 'vm'
+      });
   });
