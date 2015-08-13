@@ -9,6 +9,7 @@
       'ngMessages',
       'ngMaterial',
       'ngAnimate',
+      'ngMdIcons',
       'btford.socket-io',
       'ngAria',
       'ui.router',

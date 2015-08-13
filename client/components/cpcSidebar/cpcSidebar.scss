@@ -1,0 +1,12 @@
+md-sidenav {
+  .md-toolbar-tools-bottom {
+    font-size: small;
+    & :last-child {
+      opacity: 0.8;
+    }
+  }
+  ng-md-icon {
+    position: relative;
+    top: 4px; // adjust for svg viewbox
+  }
+}

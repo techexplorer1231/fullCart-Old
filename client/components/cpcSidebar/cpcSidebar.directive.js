@@ -1,4 +1,4 @@
-(function() {
+(function () {
   'use strict';
 
   angular
@@ -18,8 +18,30 @@
     return directive;
 
     /** @ngInject */
-    function SidebarController($mdUtil, $mdSidenav, $log) {
+    function SidebarController($mdUtil, $mdSidenav, $log, $state, Auth) {
       var vm = this;
+      vm.navigateTo = navigateTo;
+      vm.isAdmin = Auth.isAdmin;
+      vm.getCurrentUser = Auth.getCurrentUser;
+      console.log('Auth.getCurrentUser', Auth.getCurrentUser);
+      function navigateTo(link) {
+        $state.go(link);
+      }
+
+      vm.menu = [{
+        link: 'main',
+        title: 'Home',
+        icon: 'home'
+      }, {
+        link: 'login',
+        title: 'Login',
+        icon: 'login'
+      }, {
+        link: 'signup',
+        title: 'Sign Up',
+        icon: 'perm_identity'
+      }];
+
       vm.toggleLeft = buildToggler('left');
 
       /**
@@ -27,7 +49,7 @@
        * report completion in console
        */
       function buildToggler(navID) {
-        var debounceFn =  $mdUtil.debounce(function() {
+        var debounceFn = $mdUtil.debounce(function () {
           $mdSidenav(navID)
             .toggle()
             .then(function () {
@@ -37,7 +59,7 @@
         return debounceFn;
       }
 
-      vm.close = function() {
+      vm.close = function () {
         $log.debug('activate sidebar');
         $mdSidenav('left').close()
           .then(function () {

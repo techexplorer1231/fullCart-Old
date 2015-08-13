@@ -1,4 +1,4 @@
-<md-sidenav style="min-height:500px;" class="md-sidenav-left md-whiteframe-z2" md-component-id="left">
+<!--<md-sidenav style="min-height:500px;" class="md-sidenav-left md-whiteframe-z2" md-component-id="left">
   <md-toolbar class="md-theme-indigo">
     <h1 class="md-toolbar-tools">Sidenav Left</h1>
   </md-toolbar>
@@ -11,4 +11,51 @@
       narrow your display.
     </p>
   </md-content>
+</md-sidenav>-->
+<md-sidenav layout="column" class="md-sidenav-left md-whiteframe-z2" md-component-id="left">
+  <md-toolbar class="md-hue-2">
+    <span flex></span>
+    <div layout="column" class="md-toolbar-tools-bottom inset">
+      <user-avatar></user-avatar>
+      <span></span>
+      <div>{{vm.getCurrentUser | json}}</div>
+      <div>Firstname Lastname</div>
+      <div>email@domainname.com</div>
+    </div>
+  </md-toolbar>
+  <md-list>
+    <md-item ng-repeat="item in vm.menu">
+      <a>
+        <md-list-item md-ink-ripple class="md-clickable" layout="row" layout-align="start center" ng-click="vm.navigateTo(item.link)">
+          <div class="inset">
+            <ng-md-icon icon="{{item.icon}}"></ng-md-icon>
+          </div>
+          <div class="inset">{{item.title}}
+          </div>
+        </md-list-item>
+      </a>
+    </md-item>
+    <md-divider></md-divider>
+    <md-subheader>Admin</md-subheader>
+    <md-item>
+      <a ng-if="vm.isAdmin()">
+        <md-list-item md-ink-ripple class="md-clickable" layout="row" layout-align="start center" ng-click="vm.navigateTo('admin')">
+          <div class="inset">
+            <ng-md-icon icon="delete"></ng-md-icon>
+          </div>
+          <div class="inset">Admin
+          </div>
+        </md-list-item>
+      </a>
+      <a>
+        <md-list-item md-ink-ripple class="md-clickable" layout="row" layout-align="start center" ng-click="vm.navigateTo('login')">
+          <div class="inset">
+            <ng-md-icon icon="logout"></ng-md-icon>
+          </div>
+          <div class="inset">Logout
+          </div>
+        </md-list-item>
+      </a>
+    </md-item>
+  </md-list>
 </md-sidenav>
