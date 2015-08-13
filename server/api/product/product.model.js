@@ -7,8 +7,9 @@ var mongoose = require('mongoose'),
 
 var ProductSchema = new Schema({
   brand: objectid,
-  category: [objectid],
-  catalog_only: {},
+  category: objectid,
+  /*Choices available are 0 (No), 1 (Yes)*/
+  catalog_only: Number,
   collection_group: {},
   description: {
     type: String,
@@ -26,11 +27,13 @@ var ProductSchema = new Schema({
     type: Number,
     required: true
   },
-  pricing: {},
-  requires_shipping: {},
+  title: String,
+  /*Choices available are 0 (No), 1 (Yes)*/
+  requires_shipping: Number,
   sku: {
     type: String,
-    required: true
+    required: true,
+    default: shortid.generate
   },
   slug: {
     type: String,
@@ -41,13 +44,16 @@ var ProductSchema = new Schema({
     type: Number,
     required: true
   },
-  status: {},
+  /*Choices available are 0 (Draft), 1 (Live)*/
+  status: Number,
   stock_level: {
     type: Number,
     required: true
   },
-  stock_status: {},
-  tax_band: {},
+  /*Choices available are 0 (Unlimited), 1 (In Stock), 2 (Low Stock), 3 (Out Of Stock), 4 (More Stock Ordered), 5 (Discontinued)*/
+  stock_status: Number,
+  /*The tax band to use, choices available are 26 (None), 1 (Default)*/
+  tax_band: Number,
   weight: {
     type: Number,
     required: true

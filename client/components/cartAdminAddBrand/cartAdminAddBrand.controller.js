@@ -6,13 +6,13 @@
     .controller('cartAdminAddBrandController', cartAdminAddBrandController);
 
   /* @ngInject */
-  function cartAdminAddBrandController(myConstantService, AddBrand) {
+  function cartAdminAddBrandController(myConstantService, AdminBrand) {
     var vm = this;
     vm.submit = submit;
     vm.brandStatus = myConstantService.getBrandStatus();
 
     function submit() {
-      AddBrand.save(vm.brand);
+      AdminBrand.save(vm.brand);
     }
   }
 })();

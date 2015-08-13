@@ -1,15 +1,16 @@
 <!-- Todo-pratap - add input type file and --elements -->
 <pre>form = {{vm.product | json}}</pre>
-<form name="productForm" action="/api/products" method="post">
+<form name="productForm" ng-submit="vm.submit()">
   <div layout layout-sm="column">
     <md-input-container flex>
       <label>Product Title</label>
       <input type="text" ng-model="vm.product.title">
     </md-input-container>
     <md-input-container flex="50">
-      <label>Category</label>
-      <md-select ng-model="ctrl.userState">
-        <md-option ng-repeat="state in ctrl.states" value="{{state.abbrev}}">{{state.abbrev}}</md-option>
+      <md-select placeholder="Category" ng-model="vm.product.category" md-on-open="vm.loadCategories()" style="min-width: 200px;">
+        <md-option ng-value="category._id" ng-repeat="category in vm.categories">
+          {{category.title}}
+        </md-option>
       </md-select>
     </md-input-container>
   </div>
@@ -27,7 +28,7 @@
   <div layout layout-sm="column">
     <md-input-container flex>
       <label>Stock Level</label>
-      <input ng-model="vm.product.stock_level">
+      <input type="number" ng-model="vm.product.stock_level">
     </md-input-container>
     <md-input-container flex="50">
       <label>Weight</label>
@@ -50,20 +51,59 @@
       <input ng-model="vm.product.depth">
     </md-input-container>
     <md-input-container flex="50">
-      <label>Brand</label>
-      <input type="text" ng-model="vm.product.brand">
+      <md-select placeholder="Brand" ng-model="vm.product.brand" md-on-open="vm.loadBrands()" style="min-width: 200px;">
+        <md-option ng-value="brand._id" ng-repeat="brand in vm.brands">
+          {{brand.title}}
+        </md-option>
+      </md-select>
     </md-input-container>
   </div>
   <div layout layout-sm="column">
     <md-input-container flex>
       <label>Tax Band</label>
-      <input type="number" ng-model="vm.product.tax_band">
+      <md-select ng-model="vm.product.tax_band" name="tax_band" required>
+        <md-option ng-repeat="tax in vm.taxBand" ng-value="tax.key">
+          {{tax.value}}
+        </md-option>
+      </md-select>
     </md-input-container>
     <md-input-container flex="50">
       <label>Catalog Only</label>
-      <input type="number" ng-model="vm.product.catalog_only">
+      <md-select ng-model="vm.product.catalog_only" name="catalog_only" required>
+        <md-option ng-repeat="catalog in vm.catalogOnlyStatus" ng-value="catalog.key">
+          {{catalog.value}}
+        </md-option>
+      </md-select>
     </md-input-container>
   </div>
+
+  <div layout layout-sm="column">
+    <md-input-container flex>
+      <label>Requires Shipping</label>
+      <md-select ng-model="vm.product.requiresShipping" name="requires_shipping" required>
+        <md-option ng-repeat="ship in vm.requiresShipping" ng-value="ship.key">
+          {{ship.value}}
+        </md-option>
+      </md-select>
+    </md-input-container>
+    <md-input-container flex="33">
+      <label>Product Status</label>
+      <md-select ng-model="vm.product.status" name="status" required>
+        <md-option ng-repeat="status in vm.productStatus" ng-value="status.key">
+          {{status.value}}
+        </md-option>
+      </md-select>
+    </md-input-container>
+    <md-input-container flex="33">
+      <label>Stock Status</label>
+      <md-select ng-model="vm.product.stock_status" name="stock_status" required>
+        <md-option ng-repeat="status in vm.stockStatus" ng-value="status.key">
+          {{status.value}}
+        </md-option>
+      </md-select>
+    </md-input-container>
+  </div>
+
   <md-input-container flex>
     <label>Description</label>
     <textarea ng-model="vm.product.description" columns="1" md-maxlength="150"></textarea>

@@ -6,14 +6,15 @@
     .controller('CartAdminAddCategoryController', CartAdminAddCategoryController);
 
   /* @ngInject */
-  function CartAdminAddCategoryController(myConstantService, AddCategory) {
+  function CartAdminAddCategoryController(myConstantService, AdminCategory) {
     var vm = this;
     vm.submit = submit;
     vm.categoriesStatus = myConstantService.getCategoryStatus();
     vm.parentCategories = myConstantService.getParentCategory();
 
+    /*Add Category*/
     function submit() {
-      AddCategory.save(vm.category);
+      AdminCategory.save(vm.category);
     }
   }
 })();
