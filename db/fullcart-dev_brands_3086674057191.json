@@ -1,0 +1,16 @@
+{
+  "_id": {
+    "$oid": "55cc81e566d7e2e43fcdebc6"
+  },
+  "title": "Apple",
+  "status": 0,
+  "description": "Apple Description",
+  "created_at": {
+    "$date": 1439465957175
+  },
+  "updated_at": {
+    "$date": 1439465957177
+  },
+  "slug": "41IZ-dSo",
+  "__v": 0
+}

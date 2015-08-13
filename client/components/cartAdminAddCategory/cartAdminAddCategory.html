@@ -1,6 +1,5 @@
 <!-- Todo-pratap - add input type file and --elements -->
-<pre>form = {{vm.category | json}}</pre>
-<form name="categoryForm" ng-submit="vm.submit()">
+<form name="categoryForm" ng-submit="vm.submitCategory($event)">
 
   <div layout layout-sm="column">
     <md-input-container flex>
@@ -46,10 +45,12 @@
     </div>
   </md-input-container>
   <div layout layout-sm="column">
-    <md-input-container flex cart-upload-image>
+    <md-input-container flex>
+      <md-button class="md-raised md-primary" id="customFileInputSource">Add Images</md-button>
+      <input aria-label=" " type="file" class="custom-file-input" id="customFileInputTarget" nv-file-select="" uploader="vm.uploader" multiple>
     </md-input-container>
     <md-input-container flex="50">
-      <md-button ng-disabled="productForm.$invalid" type="submit" class="md-raised md-primary">Add Category</md-button>
+      <md-button ng-disabled="productForm.$invalid" type="submit" class="md-raised md-primary" ng-click="vm.submitCategory()">Add Category</md-button>
     </md-input-container>
   </div>
 

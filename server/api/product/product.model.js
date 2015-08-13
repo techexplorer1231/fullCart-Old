@@ -27,7 +27,11 @@ var ProductSchema = new Schema({
     type: Number,
     required: true
   },
-  title: String,
+  title: {
+    type: String,
+    index: true,
+    unique: true
+  },
   /*Choices available are 0 (No), 1 (Yes)*/
   requires_shipping: Number,
   sku: {

@@ -27,7 +27,8 @@ var CategorySchema = new Schema({
   },
   title: {
     type: String,
-    required: true
+    index: true,
+    unique: true
   },
   updated_at: {
     type: Date,

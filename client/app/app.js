@@ -68,7 +68,7 @@
 
     //set primary theme for the application
     $mdThemingProvider.theme('default')
-      .primaryPalette('blue');
+      .primaryPalette('light-blue');
 
     //declare SVG icons to be used in application
     $mdIconProvider
