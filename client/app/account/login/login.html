@@ -1,10 +1,11 @@
-<div ng-include="'components/navbar/navbar.html'"></div>
-
-<div class="container">
+<!--<div class="container">
   <div class="row">
     <div class="col-sm-12">
       <h1>Login</h1>
-      <p>Accounts are reset on server restart from <code>server/config/seed.js</code>. Default account is <code>test@test.com</code> / <code>test</code></p>
+
+      <p>Accounts are reset on server restart from <code>server/config/seed.js</code>. Default account is <code>test@test.com</code>
+        / <code>test</code></p>
+
       <p>Admin account is <code>admin@admin.com</code> / <code>admin</code></p>
     </div>
     <div class="col-sm-12">
@@ -24,10 +25,11 @@
 
         <div class="form-group has-error">
           <p class="help-block" ng-show="form.email.$error.required && form.password.$error.required && submitted">
-             Please enter your email and password.
+            Please enter your email and password.
           </p>
+
           <p class="help-block" ng-show="form.email.$error.email && submitted">
-             Please enter a valid email.
+            Please enter a valid email.
           </p>
 
           <p class="help-block">{{ errors.other }}</p>
@@ -58,4 +60,55 @@
     </div>
   </div>
   <hr>
+</div>-->
+
+<div class="authentication">
+  <div class="center">
+    <div class="md-whiteframe-z5 form-container">
+      <h2>Login</h2>
+      <form name="loginForm" ng-submit="vm.submitLogin()">
+        <md-input-container>
+          <label>Email</label>
+          <input type="email" required name="email" ng-model="vm.user.email">
+          <div ng-messages="loginForm.email.$error">
+            <div ng-message="required">This is required.</div>
+            <div ng-message="email">This needs to be a valid email</div>
+          </div>
+        </md-input-container>
+        <md-input-container>
+          <label>Password</label>
+          <input type="password" required name="password" ng-model="vm.user.password">
+
+          <div ng-messages="loginForm.password.$error">
+            <div ng-message="required">This is required.</div>
+          </div>
+        </md-input-container>
+        <div layout layout-sm="column">
+          <md-input-container flex>
+            <md-button ng-disabled="loginForm.$invalid" type="submit" class="md-raised md-primary">Login</md-button>
+          </md-input-container>
+          <md-input-container flex="50">
+            <md-button class="md-raised md-primary" ui-sref="signup">Register</md-button>
+          </md-input-container>
+        </div>
+
+        <md-input-container flex>
+          <md-button class="md-raised md-primary" ng-click="vm.loginOauth('facebook')">
+            Connect with Facebook
+            <ng-md-icon icon="facebook-box" class="login" style="fill: #fff"></ng-md-icon>
+          </md-button>
+          <md-button class="md-raised md-primary" ng-click="vm.loginOauth('google')">
+            Connect with Google++
+            <ng-md-icon icon="google-plus" class="login" style="fill: #fff"></ng-md-icon>
+          </md-button>
+          <md-button class="md-raised md-primary" ng-click="vm.loginOauth('twitter')">
+            Connect with Twitter
+            <ng-md-icon icon="twitter" class="login" style="fill: #fff"></ng-md-icon>
+          </md-button>
+        </md-input-container>
+
+        <p>{{ vm.error }}</p>
+      </form>
+    </div>
+  </div>
 </div>

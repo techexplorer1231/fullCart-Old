@@ -5,6 +5,8 @@
 
 html {
   font-family: 'Roboto Slab', serif;
+  width: 100%;
+  height: 100%;
 }
 
 [layout=row] {
@@ -17,6 +19,31 @@ html {
   color: #000;
   padding: 0.2em 0;
 }
+
+div.authentication{
+  display: table;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  div.center{
+    display: table-cell;
+    vertical-align: middle;
+    ng-md-icon{
+      position: relative;
+      top: 5px;
+      float: right;
+    }
+    div.md-whiteframe-z5{
+      padding: 1em;
+    }
+    div.form-container{
+      margin: 0% auto;
+      max-width: 400px;
+    }
+  }
+}
+
 
 // Component styles are injected through grunt
 // injector

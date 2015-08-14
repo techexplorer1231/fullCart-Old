@@ -20,7 +20,7 @@
         $mdSidenav(navID)
           .toggle()
           .then(function () {
-            $log.debug('toggle ' + navID + ' is done');
+            $log.debug('main.controller.js-toggle ' + navID + ' is done');
           });
       }, 300);
 
@@ -35,7 +35,7 @@
     vm.close = function () {
       $mdSidenav('left').close()
         .then(function () {
-          $log.debug('close Left is done');
+          $log.debug('main.controller.js-close Left is done');
         });
     };
   }

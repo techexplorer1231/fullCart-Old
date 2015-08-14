@@ -43,6 +43,7 @@ angular.module('fullCartApp')
        * Delete access token and user info
        */
       logout: function() {
+        console.log('called logout');
         $cookieStore.remove('token');
         currentUser = {};
       },

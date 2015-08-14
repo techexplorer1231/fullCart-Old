@@ -18,31 +18,43 @@
     return directive;
 
     /** @ngInject */
-    function SidebarController($mdUtil, $mdSidenav, $log, $state, Auth) {
+    function SidebarController($mdUtil, $mdSidenav, $log, $state, Auth, myConstantService) {
+      console.log('-----------------------------------');
       var vm = this;
+      vm.toggleLeft = buildToggler('left');
       vm.navigateTo = navigateTo;
-      vm.isAdmin = Auth.isAdmin;
-      vm.getCurrentUser = Auth.getCurrentUser;
-      console.log('Auth.getCurrentUser', Auth.getCurrentUser);
+      vm.menu = myConstantService.getSidebarMenu();
+      vm.admin = myConstantService.getSidebarAdminMenu();
+
+      /**
+       * navigate to respective states
+       * @param {String} link string of state where to navigate
+       */
       function navigateTo(link) {
+        vm.toggleLeft('left');
         $state.go(link);
       }
 
-      vm.menu = [{
-        link: 'main',
-        title: 'Home',
-        icon: 'home'
-      }, {
-        link: 'login',
-        title: 'Login',
-        icon: 'login'
-      }, {
-        link: 'signup',
-        title: 'Sign Up',
-        icon: 'perm_identity'
-      }];
-
-      vm.toggleLeft = buildToggler('left');
+      /**
+       * fetch data for current logged in user and show the data
+       */
+      function activateSidebar() {
+        vm.showChangePassword = false;
+        Auth.isLoggedInAsync(function (is) {
+          if (is) {
+            /* User is logged in, do stuff with User */
+            vm.isAdmin = Auth.isAdmin
+            vm.getCurrentUser = Auth.getCurrentUser();
+            vm.showChangePassword = true;
+            $log.debug('cpcSidebar.directive.js', vm.getCurrentUser);
+          } else {
+            console.log('inside else', Auth.getCurrentUser());
+            /* User is not logged in, can't access User */
+            vm.isAdmin = null;
+            vm.getCurrentUser = {};
+          }
+        });
+      }
 
       /**
        * Build handler to open/close a SideNav; when animation finishes
@@ -53,20 +65,12 @@
           $mdSidenav(navID)
             .toggle()
             .then(function () {
-              $log.info('toggle ' + navID + ' is done');
+              $log.debug('cpcSidebar.directive.js- toggle ' + navID + ' is done');
+              activateSidebar();
             });
         }, 300);
         return debounceFn;
       }
-
-      vm.close = function () {
-        $log.debug('activate sidebar');
-        $mdSidenav('left').close()
-          .then(function () {
-            $log.info('close LEFT is done');
-          });
-      };
-
     }
   }
 

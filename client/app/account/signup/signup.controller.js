@@ -2,7 +2,7 @@
 
 angular.module('fullCartApp')
   .controller('SignupCtrl', function ($scope, Auth, $location, $window) {
-    $scope.user = {};
+    /*$scope.user = {};
     $scope.errors = {};
 
     $scope.register = function(form) {
@@ -29,7 +29,29 @@ angular.module('fullCartApp')
           });
         });
       }
-    };
+    };*/
+    var vm = this;
+    vm.user = {};
+    vm.submitSignup = submitSignup;
+    vm.loginOauth = loginOauth;
+
+    function loginOauth(provider) {
+      $window.location.href = '/auth/' + provider;
+    }
+    function submitSignup() {
+      Auth.createUser({
+        name: vm.user.name,
+        email: vm.user.email,
+        password: vm.user.password
+      })
+        .then(function () {
+          // Logged in, redirect to home
+          $location.path('/');
+        })
+        .catch(function (err) {
+          vm.error = err.message;
+        });
+    }
 
     $scope.loginOauth = function(provider) {
       $window.location.href = '/auth/' + provider;

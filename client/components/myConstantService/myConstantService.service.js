@@ -17,7 +17,10 @@
       getRequiresShipping : getRequiresShipping,
       getProductStatus : getProductStatus,
       getStockStatus : getStockStatus,
-      getTaxBand : getTaxBand
+      getTaxBand : getTaxBand,
+      //For Sidebar
+      getSidebarMenu: getSidebarMenu,
+      getSidebarAdminMenu: getSidebarAdminMenu
     };
 
     return exports;
@@ -71,6 +74,27 @@
 
     function getTaxBand() {
       var data = [{'key':0, 'value':'None'}, {'key':1, 'value':'Default'}];
+      return data;
+    }
+
+    //For Sidebar
+    function getSidebarMenu() {
+      var data = [
+        {link:'main', title:'Home', icon:'home'},
+        {link:'login', title:'Login', icon:'login'},
+        {link:'signup', title:'Sign Up', icon:'perm_identity'},
+        {link:'login', title:'Log Out', icon:'logout'}
+      ];
+      return data;
+    }
+
+    function getSidebarAdminMenu() {
+      var data = [
+        {link:'admin', title:'Manage Users', icon:'person_add'},
+        {link:'addProduct', title:'Add Product', icon:'note_add'},
+        {link:'addCategory', title:'Add Category', icon:'note_add'},
+        {link:'addBrand', title:'Add Brand', icon:'note_add'}
+      ];
       return data;
     }
   }
